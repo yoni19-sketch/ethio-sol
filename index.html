@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="am" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>የኢትዮጵያ ኢሉሚናቲ ማህበር | WALDAA ILLUUMINAATII ITIYOOPHIYAA</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+Ethiopic:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { background: #000; color: #ccc; font-family: 'Cinzel', 'Noto Sans Ethiopic', serif; overflow-x: hidden; margin: 0; }
+        #bloodLayer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .blood-cell { position: absolute; border-radius: 50%; background: radial-gradient(circle, #8a0303, #330000); opacity: 0.3; animation: floatBlood linear infinite; }
+        @keyframes floatBlood { 0% { transform: translateY(110vh); } 100% { transform: translateY(-10vh); } }
+        .vignette { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 30%, black 130%); z-index: 5; pointer-events: none; }
+        .section-title { color: #d4af37; font-size: 1.25rem; font-weight: 900; margin-bottom: 1.5rem; border-left: 4px solid #8a0303; padding-left: 1rem; text-transform: uppercase; }
+        .warning-box { background: linear-gradient(135deg, #1a0000 0%, #0a0000 100%); border: 2px solid #ff0000; padding: 1.5rem; box-shadow: 0 0 30px rgba(255,0,0,0.2); }
+        .ritual-container { background: rgba(5, 0, 0, 0.95); border: 1px solid #330000; }
+        .input-ritual { background: rgba(10, 0, 0, 0.8); border: 1px solid #3a0000; padding: 0.8rem 1rem; color: #fff; font-size: 14px; width: 100%; border-radius: 0.375rem; }
+        .input-ritual:focus { border-color: #ff0000; outline: none; }
+        .label-ritual { color: #8a0303; font-size: 11px; font-weight: bold; margin-bottom: 5px; display: block; text-transform: uppercase; }
+        .scanner-interface { width: 120px; height: 150px; border: 2px solid #8a0303; position: relative; cursor: pointer; border-radius: 12px; overflow: hidden; background: #000; }
+        .laser-line { position: absolute; width: 100%; height: 3px; background: #ff0000; box-shadow: 0 0 15px #ff0000; top: 0; display: none; }
+        .btn-initiate { background: #8a0303; border: 1px solid #ff0000; transition: 0.4s; color: white; cursor: pointer; }
+        .btn-initiate:hover:not([disabled]) { background: #ff0000; color: #000; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .preview-img { width: 100%; height: 120px; object-fit: contain; margin-top: 10px; border: 1px solid #3a0000; display: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-red-900 bg-black text-gray-200">
+
+    <div id="bloodLayer"></div>
+    <div class="vignette"></div>
+
+    <header class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10" data-aos="zoom-out">
+        <div class="mb-6 relative mt-10">
+            <img src="img_20260201_181752_872.jpg" alt="Logo" class="w-40 h-40 md:w-64 md:h-64 object-contain animate-float mx-auto rounded-full border-2 border-red-900/30 shadow-2xl">
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase mb-2">የኢትዮጵያ <span class="text-red-600">ኢሉሚናቲ</span> ማህበር</h1>
+        <h2 class="text-xl md:text-2xl font-bold text-gray-400 tracking-widest mb-4">WALDAA ILLUUMINAATII ITIYOOPHIYAA</h2>
+        <p class="text-red-500 italic font-bold">"እውቀት ኃይል ነው፣ ብርሃን ነጻነት ነው / Beekumsi humna, ifni bilisummaadha"</p>
+        <div class="mt-8"><a href="#registration" class="btn-initiate px-8 py-4 uppercase text-xs font-bold rounded-md inline-block">ቃል ኪዳን ይግቡ / KAKUU SEENAA</a></div>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+        
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="section-title">፩. የመግቢያ መመሪያ / 1. Qajeelfama Seensaa</h2>
+            <div class="space-y-4 text-gray-300 leading-relaxed text-sm md:text-base text-justify bg-black/60 p-6 rounded-lg border border-red-900/30">
+                <p>ወደ ታላቁ ብርሃን ለሚቀላቀሉ አባላት በሙሉ የመስዋዕት ማቅረቢያ መንገዶች በሚስጥር የተያዙ ናቸው። እያንዳንዱ አባል እንደ ምርጫው የመስዋዕት አይነት የሚወስን ሲሆን፣ ይህም ለታላቁ ዓላማ የደም ማፍሰሻ ስነ-ስርዓት ይውላል።</p>
+                <p>Namni ifa kana fudhachuuf murteesse hiyyummaa, wallaalummaa fi garbummaa jalaa ba'uuf kakuu seena. Waldaan miseensota isaa dinagdee fi hawaasummaan gara qofee ol'aanaatti fiduuf itti gaafatamummaa fudhata.</p>
+            </div>
+        </section>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="section-title">፪. የመስዋዕት እና የጥቅማጥቅም ዝርዝር / 2. WAREEGAA FI FAAYIDAA</h2>
+            <div class="overflow-x-auto bg-black/80 border border-red-900/40 rounded-lg shadow-2xl">
+                <table class="w-full text-left text-xs md:text-sm">
+                    <thead>
+                        <tr class="bg-red-950/50 text-red-500 uppercase tracking-widest">
+                            <th class="p-4 border-b border-red-900/30">የመስዋዕት አይነት / Gosa Wareegaa</th>
+                            <th class="p-4 border-b border-red-900/30">የቅድመ ክፍያ / Kaffaltii (ETB)</th>
+                            <th class="p-4 border-b border-red-900/30">የሚከፈል ጥቅማጥቅም / Faayidaa (ETB)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="border-b border-red-900/10 hover:bg-red-900/10">
+                            <td class="p-4 font-bold">ጥቁር አውራ ዶሮ / Kormaa Lukkuu Gurraacha</td>
+                            <td class="p-4">3,666</td>
+                            <td class="p-4 text-green-500 font-bold">850,000.0</td>
+                        </tr>
+                        <tr class="border-b border-red-900/10 hover:bg-red-900/10">
+                            <td class="p-4 font-bold">ጥቁር በግ / Hoolaa Gurraacha</td>
+                            <td class="p-4">12,666</td>
+                            <td class="p-4 text-green-500 font-bold">3,000,000.0</td>
+                        </tr>
+                        <tr class="border-b border-red-900/10 hover:bg-red-900/10">
+                            <td class="p-4 font-bold">ጥቁር ፍየል / Reehee Gurraacha</td>
+                            <td class="p-4">17,666</td>
+                            <td class="p-4 text-green-500 font-bold">5,000,000.0</td>
+                        </tr>
+                        <tr class="border-b border-red-900/10 hover:bg-red-900/10">
+                            <td class="p-4 font-bold">ጥቁር በሬ / Sangaa Gurraacha</td>
+                            <td class="p-4">66,666</td>
+                            <td class="p-4 text-green-500 font-bold">9,000,000.0</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/10">
+                            <td class="p-4 font-bold">ግመል / Gaala</td>
+                            <td class="p-4">166,666</td>
+                            <td class="p-4 text-green-500 font-bold">18,000,000.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="warning-box mb-12 rounded-lg" data-aos="zoom-in">
+            <h2 class="text-lg md:text-xl font-black mb-4 flex items-center gap-2 text-red-600">
+                <i data-lucide="alert-triangle"></i> ፫. የክፍያ መመሪያ / 3. Qajeelfama Kaffaltii
+            </h2>
+            <div class="space-y-4 text-sm md:text-base">
+                <p class="text-white font-bold underline">አስቸኳይ ማሳሰቢያ / Akkachiisa Ariifachiisaa!</p>
+                <p>ለአባልነት ምዝገባ እና ለዝግጅት የሚውለው ክፍያ የሚፈጸመው በዚህ የባንክ ሂሳብ ቁጥር ብቻ ነው፦</p>
+                <div class="bg-black/80 p-5 border border-red-600 inline-block rounded-md w-full md:w-auto text-center shadow-lg">
+                    <p class="text-red-500 font-bold mb-1 uppercase text-xs">የኢትዮጵያ ንግድ ባንክ (CBE)</p>
+                    <p class="text-2xl md:text-3xl text-white font-black tracking-widest">1000747221147</p>
+                </div>
+                <p class="italic text-gray-400 text-[11px] md:text-xs">* ክፍያውን እንደፈጸሙ ደረሰኝ ማያያዝ ግዴታ ነው። / Nagahee kaffaltii qabsiisuun dirqama.</p>
+            </div>
+        </section>
+
+        <section id="registration" class="mb-32">
+            <div class="ritual-container p-6 md:p-12 rounded-xl">
+                <h2 class="text-center text-xl md:text-2xl font-black mb-10 uppercase text-white border-b border-red-900/30 pb-4">የምዝገባ ፎርም / FOORMII GALMEE</h2>
+
+                <form action="https://formsubmit.co/ermiyasuta8@gmail.com" method="POST" enctype="multipart/form-data" id="ritualForm" class="space-y-10">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Bilingual Member Registration!">
+
+                    <div class="space-y-6">
+                        <h3 class="text-red-600 font-bold border-b border-red-900/50 pb-1 text-xs uppercase">1. የግል መረጃ / Odeeffannoo Dhuunfaa</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label class="label-ritual">ሙሉ ስም / Maqaa Guutuu</label><input type="text" name="Full_Name" required class="input-ritual"></div>
+                            <div><label class="label-ritual">የእናት ስም / Maqaa Haadhaa</label><input type="text" name="Mothers_Name" required class="input-ritual"></div>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div><label class="label-ritual">ፆታ / Saala</label>
+                                <select name="Gender" required class="input-ritual bg-black"><option value="">ምረጥ</option><option>ወንድ/Dhiira</option><option>ሴት/Dhalaa</option></select>
+                            </div>
+                            <div><label class="label-ritual">ዕድሜ / Umurii</label><input type="number" name="Age" required min="18" class="input-ritual"></div>
+                            <div><label class="label-ritual">ዜግነት / Lammummaa</label><input type="text" name="Nationality" required class="input-ritual" value="Ethiopian"></div>
+                            <div><label class="label-ritual">የደም አይነት / Gosa Dhiigaa</label>
+                                <select name="Blood_Type" required class="input-ritual bg-black"><option value="">ምረጥ</option><option>A+</option><option>B+</option><option>O+</option><option>AB+</option><option>A-</option><option>B-</option><option>O-</option><option>AB-</option></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h3 class="text-red-600 font-bold border-b border-red-900/50 pb-1 text-xs uppercase">2. አድራሻ / Teessoo</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label class="label-ritual">ስልክ ቁጥር / Bilbila</label><input type="tel" name="Phone" required class="input-ritual" placeholder="09..."></div>
+                            <div><label class="label-ritual">የቅርብ ተጠሪ ስልክ / Bilbila Nama Ariifachiisaa</label><input type="tel" name="Emergency_Phone" required class="input-ritual"></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div><label class="label-ritual">ክልል/ከተማ / Naannoo</label><input type="text" name="Region" required class="input-ritual"></div>
+                            <div><label class="label-ritual">ወረዳ/ክፍለ ከተማ / Woreda</label><input type="text" name="Woreda" required class="input-ritual"></div>
+                            <div><label class="label-ritual">ቀበሌ/የቤት ቁጥር / Kebele/Lakk Manaa</label><input type="text" name="Kebele" required class="input-ritual"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h3 class="text-red-600 font-bold border-b border-red-900/50 pb-1 text-xs uppercase">3. ስራ እና የመስዋዕት ምርጫ / Hojii fi Wareegama</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label class="label-ritual">የአሁኑ ስራ / Hojii Keessan</label><input type="text" name="Job" required class="input-ritual"></div>
+                            <div><label class="label-ritual">ወርሃዊ ገቢ / Galii Baatii</label><input type="number" name="Income" required class="input-ritual"></div>
+                        </div>
+                        <div>
+                            <label class="label-ritual text-red-500">የመስዋዕት ምርጫ (ከነጥቅማጥቅሙ) / Filannoo Wareegamaa</label>
+                            <select name="Sacrifice_Choice" required class="input-ritual bg-black border-red-600">
+                                <option value="">ምርጫዎን ይምረጡ / Filadhaa</option>
+                                <option value="Rooster">ጥቁር አውራ ዶሮ (3,666 ETB) - ጥቅሙ: 850,000 ETB</option>
+                                <option value="Sheep">ጥቁር በግ (12,666 ETB) - ጥቅሙ: 3,000,000 ETB</option>
+                                <option value="Goat">ጥቁር ፍየል (17,666 ETB) - ጥቅሙ: 5,000,000 ETB</option>
+                                <option value="Bull">ጥቁር በሬ (66,666 ETB) - ጥቅሙ: 9,000,000 ETB</option>
+                                <option value="Camel">ግመል (166,666 ETB) - ጥቅሙ: 18,000,000 ETB</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border border-red-900 p-4 rounded bg-black/40 text-center">
+                            <label class="label-ritual">ፎቶ / Suuraa</label>
+                            <input type="file" name="Portrait" required class="hidden" id="f1" accept="image/*" onchange="previewFile(this, 'p1')">
+                            <label for="f1" class="cursor-pointer text-red-600 font-bold border border-red-900 px-4 py-2 rounded text-[10px] inline-block mt-2">ምረጥ / FILADHU</label>
+                            <img id="p1" class="preview-img">
+                        </div>
+                        <div class="border border-red-900 p-4 rounded bg-black/40 text-center">
+                            <label class="label-ritual">መታወቂያ / Waraqaa Eenyummaa</label>
+                            <input type="file" name="ID_Card" required class="hidden" id="f2" accept="image/*" onchange="previewFile(this, 'p2')">
+                            <label for="f2" class="cursor-pointer text-red-600 font-bold border border-red-900 px-4 py-2 rounded text-[10px] inline-block mt-2">ምረጥ / FILADHU</label>
+                            <img id="p2" class="preview-img">
+                        </div>
+                        <div class="border-2 border-red-600 p-4 rounded bg-red-950/10 text-center shadow-inner">
+                            <label class="label-ritual text-red-500">የክፍያ ደረሰኝ / Nagahee Kaffaltii</label>
+                            <input type="file" name="Receipt" required class="hidden" id="f3" accept="image/*" onchange="previewFile(this, 'p3')">
+                            <label for="f3" class="cursor-pointer bg-red-600 text-white font-bold px-4 py-2 rounded text-[10px] inline-block mt-2">አያይዝ / QABSIISI</label>
+                            <img id="p3" class="preview-img">
+                        </div>
+                    </div>
+
+                    <div class="py-12 bg-black/80 border border-red-900/40 text-center rounded-lg shadow-xl">
+                        <div id="scanner" class="scanner-interface mx-auto flex items-center justify-center">
+                            <div id="laser" class="laser-line"></div>
+                            <i data-lucide="fingerprint" class="w-16 h-16 text-red-900 opacity-40"></i>
+                        </div>
+                        <p id="scanStatus" class="text-[10px] text-red-500 mt-6 uppercase font-black animate-pulse">ጣረሞትዎን ተጭነው ይያዙ / Mallattoo qubaa keessan as tuqaa qabaa</p>
+                    </div>
+
+                    <button type="submit" id="initBtn" disabled class="btn-initiate w-full py-8 text-sm opacity-20 cursor-not-allowed uppercase font-black tracking-widest rounded-lg">
+                        የምዝገባ መረጃውን ላክ / ODEEFFANNOO ERGI
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+            AOS.init({ duration: 1000, once: true });
+
+            // Blood Background
+            const bloodLayer = document.getElementById('bloodLayer');
+            for(let i = 0; i < 20; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'blood-cell';
+                const size = Math.random() * 20 + 10;
+                cell.style.width = size + 'px'; cell.style.height = size + 'px';
+                cell.style.left = Math.random() * 100 + '%';
+                cell.style.animationDuration = Math.random() * 10 + 8 + 's';
+                bloodLayer.appendChild(cell);
+            }
+
+            // Scanner Logic
+            const scanner = document.getElementById('scanner');
+            const laser = document.getElementById('laser');
+            const statusText = document.getElementById('scanStatus');
+            const submitBtn = document.getElementById('initBtn');
+            let scanTimer;
+
+            const startScan = (e) => {
+                if(e.type === 'touchstart') e.preventDefault();
+                laser.style.display = 'block';
+                laser.style.animation = 'scanLoop 1.5s infinite linear';
+                statusText.innerText = 'በመረመር ላይ... / Qorachaa jira...';
+                scanTimer = setTimeout(() => {
+                    statusText.innerHTML = '<span style="color:#00ff00">ተረጋግጧል / MIRKANAA\'EERA - ሰነዱን መላክ ይቻላል</span>';
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    laser.style.display = 'none';
+                    scanner.style.borderColor = '#00ff00';
+                }, 3500);
+            };
+
+            const stopScan = () => {
+                clearTimeout(scanTimer);
+                if(submitBtn.disabled) {
+                    laser.style.display = 'none';
+                    statusText.innerText = 'ጣረሞትዎን ተጭነው ይያዙ / Mallattoo qubaa keessan as tuqaa qabaa';
+                }
+            };
+
+            scanner.addEventListener('mousedown', startScan);
+            scanner.addEventListener('mouseup', stopScan);
+            scanner.addEventListener('touchstart', startScan);
+            scanner.addEventListener('touchend', stopScan);
+
+            const style = document.createElement('style');
+            style.innerHTML = `@keyframes scanLoop { 0%{top:0} 100%{top:100%} }`;
+            document.head.appendChild(style);
+        });
+
+        function previewFile(input, imgId) {
+            const preview = document.getElementById(imgId);
+            const reader = new FileReader();
+            reader.onloadend = () => { preview.src = reader.result; preview.style.display = "block"; }
+            if (input.files[0]) reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</body>
+</html>
